@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Точка опоры - психологическая поддержка</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8fafc;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #4a90e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: color 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
+        }
+
+        .help-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .help-button:hover {
+            background-color: #357abd;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f9ff 0%, #e8f0fe 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .primary-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background-color: #357abd;
+        }
+
+        .primary-button:disabled {
+            background-color: #a0c4f0;
+            cursor: not-allowed;
+        }
+
+        .secondary-button {
+            background-color: white;
+            color: #4a90e2;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #4a90e2;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            color: #2c3e50;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .values {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1e293b;
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: #f8fafc;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #4a90e2;
+            font-size: 1.5rem;
+        }
+
+        .value-card h3 {
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .value-card p {
+            color: #64748b;
+        }
+
+        .hotlines {
+            padding: 4rem 0;
+            background-color: #f8fafc;
+        }
+
+        .hotlines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .hotline-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid #4a90e2;
+            transition: transform 0.3s;
+        }
+
+        .hotline-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hotline-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .hotline-phone-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .hotline-phone {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .copy-button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .copy-button:hover {
+            background-color: #e6f0ff;
+        }
+
+        .hotline-hours {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .articles {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background-color: #f8fafc;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d9e9ff;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-content h3 {
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .article-content p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .feedback {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #e6f0ff 0%, #c2dbff 100%);
+        }
+
+        .feedback-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .feedback-content h2 {
+            font-size: 2.2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-content p {
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.3rem;
+        }
+
+        .char-counter.warning {
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+        .warning-text {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        /* Кризисное предупреждение */
+        .crisis-warning {
+            background-color: #f8d7da;
+            border: 2px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #721c24;
+        }
+
+        .crisis-warning p {
+            margin: 0.5rem 0;
+            color: #721c24;
+        }
+
+        /* Уведомления */
+        .notification {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fadeOut 5s forwards;
+        }
+
+        .notification.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        .copy-success {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a90e2;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            animation: slideIn 0.3s;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Быстрые ответы */
+        .quick-replies {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 5px;
+        }
+
+        .quick-replies p {
+            margin-bottom: 0.8rem;
+        }
+
+        .quick-reply-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .quick-reply-btn {
+            background-color: white;
+            border: 1px solid #4a90e2;
+            color: #4a90e2;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .quick-reply-btn:hover {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        /* Переключатель тем */
+        .theme-switcher {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 98;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background-color: #f8fafc;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Кнопка наверх */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .scroll-top:hover {
+            background-color: #357abd;
+            transform: translateY(-3px);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        /* Индикатор загрузки */
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4a90e2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-info p {
+            color: #cbd5e1;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            color: #1e293b;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.3s;
+        }
+
+        .close-button:hover {
+            color: #2c3e50;
+        }
+
+        .emergency-button {
+            display: block;
+            background-color: #dc3545;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .emergency-button:hover {
+            background-color: #c82333;
+        }
+
+        /* Темная тема */
+        body.dark-theme {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme h1,
+        body.dark-theme h2,
+        body.dark-theme h3,
+        body.dark-theme .logo-text,
+        body.dark-theme nav a {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme header {
+            background-color: #16213e;
+        }
+
+        body.dark-theme .hotline-card,
+        body.dark-theme .article-card,
+        body.dark-theme .value-card,
+        body.dark-theme .feedback-form {
+            background-color: #16213e;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .hotline-card p,
+        body.dark-theme .article-card p,
+        body.dark-theme .value-card p {
+            color: #a0a0a0;
+        }
+
+        /* Сепия тема */
+        body.sepia-theme {
+            background-color: #f4ecd8;
+            color: #5b4a3a;
+        }
+
+        body.sepia-theme h1,
+        body.sepia-theme h2,
+        body.sepia-theme h3,
+        body.sepia-theme .logo-text,
+        body.sepia-theme nav a {
+            color: #5b4a3a;
+        }
+
+        body.sepia-theme header {
+            background-color: #e8d9c0;
+        }
+
+        body.sepia-theme .hotline-card,
+        body.sepia-theme .article-card,
+        body.sepia-theme .value-card,
+        body.sepia-theme .feedback-form {
+            background-color: #e8d9c0;
+            color: #5b4a3a;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .theme-switcher {
+                top: auto;
+                bottom: 100px;
+                right: 10px;
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-circle">ТО</div>
+                    <span class="logo-text">Точка опоры</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Статьи</a></li>
+                        <li><a href="#">Горячие линии</a></li>
+                        <li><a href="#">О проекте</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="help-button" id="helpButton">Нужна помощь</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Тебе здесь рады</h1>
+                        <p>Это безопасное пространство, где можно говорить о чем угодно. Анонимно, бесплатно, круглосуточно.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="primary-button" id="getHelpButton">Мне нужна поддержка</a>
+                            <a href="#" class="secondary-button">Почитать статьи</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./images/main2.jpg" alt="banner" width="600px">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values">
+            <div class="container">
+                <h2 class="section-title">Почему тебе здесь безопасно</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🤫</div>
+                        <h3>Полная анонимность</h3>
+                        <p>Никто не узнает, что ты обращался за помощью. Мы не храним личные данные.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔒</div>
+                        <h3>Конфиденциальность</h3>
+                        <p>Все, чем ты поделишься, останется между нами. Тайна твоего обращения защищена.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💚</div>
+                        <h3>Безоценочность</h3>
+                        <p>Здесь не осуждают и не критикуют. Мы принимаем тебя такой, какая ты есть.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⏰</div>
+                        <h3>Поддержка 24/7</h3>
+                        <p>Ты можешь обратиться в любое время, даже ночью. Мы всегда рядом.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hotlines">
+            <div class="container">
+                <h2 class="section-title">Если нужна срочная помощь</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: #475569;">Позвони по этим номерам прямо сейчас. Здесь работают профессионалы, которые готовы тебя выслушать.</p>
+                <div class="hotlines-grid">
+                    <div class="hotline-card">
+                        <h3>Всероссийский телефон доверия</h3>
+                        <div class="hotline-phone-container">
+                            <span class="hotline-phone">8-800-123-45-67</span>
+                            <button class="copy-button" data-phone="88001234567">📋</button>
+                        </div>
+                        <p>Круглосуточно, бесплатно, анонимно</p>
+                    </div>
+                    <div class="hotline-card">
+                        <h3>Детский телефон доверия</h3>
+                        <div class="hotline-phone-container">
+                            <span class="hotline-phone">8-800-200-01-22</span>
+                            <button class="copy-button" data-phone="88002000122">📋</button>
+                        </div>
+                        <p>Для детей и подростков, 24/7</p>
+                    </div>
+                    <div class="hotline-card">
+                        <h3>Помощь при насилии</h3>
+                        <div class="hotline-phone-container">
+                            <span class="hotline-phone">8-800-700-06-00</span>
+                            <button class="copy-button" data-phone="88007000600">📋</button>
+                        </div>
+                        <p>Круглосуточная поддержка</p>
+                    </div>
+                    <div class="hotline-card">
+                        <h3>Кризисная линия</h3>
+                        <div class="hotline-phone-container">
+                            <span class="hotline-phone">8-495-989-50-50</span>
+                            <button class="copy-button" data-phone="84959895050">📋</button>
+                        </div>
+                        <p>Для взрослых в кризисной ситуации</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="articles">
+            <div class="container">
+                <h2 class="section-title">Полезные статьи</h2>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-image"><img src="./images/1.jpg" alt="pa" width="500px"></div>
+                        <div class="article-content">
+                            <h3>Как справиться с панической атакой</h3>
+                            <p>Простые техники, которые помогут вернуть контроль над телом и дыханием в момент острой тревоги.</p>
+                            <a href="#" class="read-more">Читать далее →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-image"><img src="./images/2.jpg" alt="pa" width="500px"></div>
+                        <div class="article-content">
+                            <h3>Что делать, если не к кому обратиться</h3>
+                            <p>Куда пойти, когда кажется, что весь мир отвернулся, и нет рядом никого, кто мог бы поддержать.</p>
+                            <a href="#" class="read-more">Читать далее →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-image"><img src="./images/3.jpg" alt="pa" width="500px"></div>
+                        <div class="article-content">
+                            <h3>Простые техники самопомощи при тревоге</h3>
+                            <p>Упражнения, которые можно выполнить самостоятельно, чтобы успокоиться здесь и сейчас.</p>
+                            <a href="#" class="read-more">Читать далее →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback">
+            <div class="container">
+                <div class="feedback-content">
+                    <h2>Напиши мне</h2>
+                    <p>Если не готов(а) говорить, можешь написать о том, что тебя беспокоит. Я отвечу как можно скорее.</p>
+                    <div class="feedback-form">
+                        <div id="formNotification" class="notification success" style="display: none;"></div>
+                        <form id="anonymousForm">
+                            <div class="form-group">
+                                <label for="topic">Что тебя беспокоит?</label>
+                                <select id="topic" name="topic">
+                                    <option value="">Выбери тему</option>
+                                    <option value="anxiety">Тревога и страх</option>
+                                    <option value="depression">Подавленность, апатия</option>
+                                    <option value="relationships">Отношения с близкими</option>
+                                    <option value="loneliness">Одиночество</option>
+                                    <option value="crisis">Кризисная ситуация</option>
+                                    <option value="other">Другое</option>
+                                    <option value="unknown">Не знаю, с чего начать</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Напиши, что чувствуешь</label>
+                                <textarea id="message" name="message" placeholder="Можно просто написать о том, что происходит. Любыми словами." maxlength="1000"></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span>/1000 символов
+                                </div>
+                            </div>
+                            <button type="submit" class="primary-button" style="width: 100%;" id="submitBtn">Отправить анонимно</button>
+                        </form>
+                        <div class="quick-replies">
+                            <p>Не знаешь, с чего начать? Попробуй один из вариантов:</p>
+                            <div class="quick-reply-buttons">
+                                <button class="quick-reply-btn" data-target="message">Мне очень плохо, но я не знаю, как описать</button>
+                                <button class="quick-reply-btn" data-target="message">Чувствую тревогу и пустоту</button>
+                                <button class="quick-reply-btn" data-target="message">Никто меня не понимает</button>
+                                <button class="quick-reply-btn" data-target="message">Просто хочу, чтобы кто-то был рядом</button>
+                            </div>
+                        </div>
+                        <div class="warning-text">
+                            ⚠️ Если тебе очень плохо и нужна срочная помощь, пожалуйста, позвони по телефону доверия 8-800-123-45-67 прямо сейчас.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2026 Точка опоры. Проект психологической поддержки.</p>
+                    <p>Здесь всегда кто-то готов тебя выслушать.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно анонимной помощи -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Напиши мне</h3>
+                <button class="close-button" id="closeModal">&times;</button>
+            </div>
+            <a href="tel:88001234567" class="emergency-button">📞 Срочно! Позвонить на телефон доверия</a>
+            <form id="modalForm">
+                <div class="form-group">
+                    <label for="modalTopic">Что тебя беспокоит?</label>
+                    <select id="modalTopic" name="topic">
+                        <option value="">Выбери тему</option>
+                        <option value="anxiety">Тревога и страх</option>
+                        <option value="depression">Подавленность, апатия</option>
+                        <option value="relationships">Отношения с близкими</option>
+                        <option value="loneliness">Одиночество</option>
+                        <option value="crisis">Кризисная ситуация</option>
+                        <option value="other">Другое</option>
+                        <option value="unknown">Не знаю, с чего начать</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalMessage">Напиши, что чувствуешь</label>
+                    <textarea id="modalMessage" name="message" placeholder="Можно просто написать о том, что происходит. Любыми словами." maxlength="1000"></textarea>
+                    <div class="char-counter">
+                        <span id="modalCharCount">0</span>/1000 символов
+                    </div>
+                </div>
+                <button type="submit" class="primary-button" style="width: 100%;" id="modalSubmitBtn">Отправить анонимно</button>
+            </form>
+            <div class="quick-replies">
+                <p>Не знаешь, с чего начать? Попробуй один из вариантов:</p>
+                <div class="quick-reply-buttons">
+                    <button class="quick-reply-btn" data-target="modalMessage">Мне очень плохо, но я не знаю, как описать</button>
+                    <button class="quick-reply-btn" data-target="modalMessage">Чувствую тревогу и пустоту</button>
+                    <button class="quick-reply-btn" data-target="modalMessage">Никто меня не понимает</button>
+                    <button class="quick-reply-btn" data-target="modalMessage">Просто хочу, чтобы кто-то был рядом</button>
+                </div>
+            </div>
+            <div class="warning-text" style="margin-top: 1rem;">
+                ⚠️ В критической ситуации сначала позвони по телефону доверия.
+            </div>
+        </div>
+    </div>
+
+    <!-- Переключатель тем -->
+    <div class="theme-switcher">
+        <button class="theme-btn" data-theme="light">☀️</button>
+        <button class="theme-btn" data-theme="dark">🌙</button>
+        <button class="theme-btn" data-theme="sepia">📜</button>
+    </div>
+
+    <!-- Кнопка наверх -->
+    <button id="scrollToTop" class="scroll-top" title="Наверх">↑</button>
+
+    <script>
+        // === 1. Проверка критических ключевых слов ===
+        function containsCrisisKeywords(message) {
+            const crisisWords = [
+                'суицид', 'суицидальный', 'суицидальные',
+                'умереть', 'умру', 'умираю', 'погибну',
+                'жить не хочу', 'не хочу жить', 'нет сил жить',
+                'покончить с собой', 'покончу с собой',
+                'убью себя', 'самоубийство', 'самоубийца',
+                'повешусь', 'повеситься', 'застрелюсь', 'выпрыгну',
+                'вскрою вены', 'передоз', 'передозировка',
+                'хватит с меня', 'всё надоело', 'больше не могу',
+                'свести счёты', 'сведу счёты', 'руки на себя',
+                'проще умереть', 'лучше бы я умер', 'лучше бы меня не было',
+                'не хочу просыпаться', 'не вижу смысла', 'смысла нет'
+            ];
+            const lowerMessage = message.toLowerCase();
+            return crisisWords.some(word => lowerMessage.includes(word));
+        }
+
+        // === 2. Функция показа кризисного предупреждения ===
+        function showCrisisWarning(formElement, messageText) {
+            if (document.querySelector('.crisis-warning')) return;
+            
+            const warningDiv = document.createElement('div');
+            warningDiv.className = 'crisis-warning';
+            warningDiv.innerHTML = `
+                <p>⚠️ <strong>Похоже, тебе очень тяжело прямо сейчас.</strong> ⚠️</p>
+                <p>Пожалуйста, не оставайся один/одна с этими мыслями. <strong>Позвони прямо сейчас</strong> по телефону доверия, где работают специально обученные психологи:</p>
+                <p style="font-size: 1.5rem; font-weight: bold; margin: 0.8rem 0;">8-800-123-45-67</p>
+                <p>Это бесплатно, анонимно и круглосуточно. Тебе обязательно помогут.</p>
+                <button type="button" class="primary-button" onclick="window.location.href='tel:88001234567'" style="margin-top: 0.8rem;">📞 Позвонить сейчас</button>
+            `;
+            
+            const formContainer = formElement.closest('.feedback-form') || formElement.parentElement;
+            formContainer.insertBefore(warningDiv, formElement);
+            warningDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // === 3. Функция показа уведомления ===
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('formNotification');
+            if (notification) {
+                notification.textContent = message;
+                notification.className = `notification ${type}`;
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 5000);
+            } else {
+                alert(message);
+            }
+        }
+
+        // === 4. Счетчики символов ===
+        const messageInput = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        const modalMessageInput = document.getElementById('modalMessage');
+        const modalCharCount = document.getElementById('modalCharCount');
+
+        function updateCharCount(input, counter) {
+            if (input && counter) {
+                const count = input.value.length;
+                counter.textContent = count;
+                if (count > 900) {
+                    counter.parentElement.classList.add('warning');
+                } else {
+                    counter.parentElement.classList.remove('warning');
+                }
+            }
+        }
+
+        if (messageInput && charCount) {
+            messageInput.addEventListener('input', () => updateCharCount(messageInput, charCount));
+            updateCharCount(messageInput, charCount);
+        }
+        if (modalMessageInput && modalCharCount) {
+            modalMessageInput.addEventListener('input', () => updateCharCount(modalMessageInput, modalCharCount));
+            updateCharCount(modalMessageInput, modalCharCount);
+        }
+
+        // === 5. Быстрые ответы ===
+        document.querySelectorAll('.quick-reply-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.dataset.target;
+                const targetInput = document.getElementById(targetId);
+                if (targetInput) {
+                    targetInput.value = this.textContent;
+                    if (targetId === 'message') updateCharCount(messageInput, charCount);
+                    if (targetId === 'modalMessage') updateCharCount(modalMessageInput, modalCharCount);
+                }
+            });
+        });
+
+        // === 6. Копирование номера телефона ===
+        function showCopyToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'copy-success';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', async function() {
+                const phone = this.dataset.phone;
+                try {
+                    await navigator.clipboard.writeText(phone);
+                    showCopyToast('Номер скопирован');
+                } catch (err) {
+                    console.error('Ошибка копирования:', err);
+                    showCopyToast('Не удалось скопировать');
+                }
+            });
+        });
+
+        // === 7. Отправка форм с проверкой критических слов ===
+        const anonymousForm = document.getElementById('anonymousForm');
+        const modalForm = document.getElementById('modalForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+
+        async function handleFormSubmit(event, formElement, messageFieldId, closeModalAfterSubmit = false) {
+            event.preventDefault();
+            
+            const messageField = document.getElementById(messageFieldId);
+            const userMessage = messageField ? messageField.value : '';
+            
+            // Проверка на критические ключевые слова
+            if (containsCrisisKeywords(userMessage)) {
+                showCrisisWarning(formElement, userMessage);
+                return;
+            }
+            
+            // Имитация отправки с индикатором загрузки
+            const btn = formElement.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="loader"></span> Отправка...';
+            btn.disabled = true;
+            
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            
+            showNotification('Спасибо за обращение. Я отвечу тебе как можно скорее (в демо-версии сообщение не отправляется).', 'success');
+            formElement.reset();
+            
+            if (messageInput) updateCharCount(messageInput, charCount);
+            if (modalMessageInput) updateCharCount(modalMessageInput, modalCharCount);
+            
+            if (closeModalAfterSubmit) {
+                closeModal();
+            }
+        }
+
+        if (anonymousForm) {
+            anonymousForm.addEventListener('submit', (e) => handleFormSubmit(e, anonymousForm, 'message', false));
+        }
+        if (modalForm) {
+            modalForm.addEventListener('submit', (e) => handleFormSubmit(e, modalForm, 'modalMessage', true));
+        }
+
+        // === 8. Модальное окно ===
+        const modal = document.getElementById('helpModal');
+        const helpButton = document.getElementById('helpButton');
+        const getHelpButton = document.getElementById('getHelpButton');
+        const closeButton = document.getElementById('closeModal');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (helpButton) {
+            helpButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+        if (getHelpButton) {
+            getHelpButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // === 9. Переключатель тем ===
+        const savedTheme = localStorage.getItem('preferredTheme');
+        if (savedTheme) {
+            document.body.className = savedTheme + '-theme';
+        }
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                document.body.className = theme + '-theme';
+                localStorage.setItem('preferredTheme', theme);
+            });
+        });
+
+        // === 10. Кнопка наверх ===
+        const scrollButton = document.getElementById('scrollToTop');
+        if (scrollButton) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            });
+            scrollButton.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
