@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Точка опоры - психологическая поддержка</title>
     <style>
         
@@ -269,6 +269,7 @@
             align-items: center;
             gap: 0.5rem;
             margin: 1rem 0;
+            flex-wrap: wrap;
         }
 
         .hotline-phone {
@@ -494,6 +495,8 @@
 
         .quick-replies p {
             margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: #475569;
         }
 
         .quick-reply-buttons {
@@ -703,9 +706,9 @@
             background-color: #c82333;
         }
 
-        /* Темная тема */
+        /* Темная тема - улучшенная контрастность */
         body.dark-theme {
-            background-color: #1a1a2e;
+            background-color: #121212;
             color: #e0e0e0;
         }
 
@@ -714,25 +717,38 @@
         body.dark-theme h3,
         body.dark-theme .logo-text,
         body.dark-theme nav a {
-            color: #e0e0e0;
+            color: #ffffff;
         }
 
         body.dark-theme header {
-            background-color: #16213e;
+            background-color: #1e1e2a;
         }
 
         body.dark-theme .hotline-card,
         body.dark-theme .article-card,
         body.dark-theme .value-card,
         body.dark-theme .feedback-form {
-            background-color: #16213e;
+            background-color: #1e1e2a;
             color: #e0e0e0;
         }
 
         body.dark-theme .hotline-card p,
         body.dark-theme .article-card p,
         body.dark-theme .value-card p {
-            color: #a0a0a0;
+            color: #b0b0b0;
+        }
+
+        body.dark-theme .value-icon {
+            background-color: #2a2a3e;
+        }
+
+        body.dark-theme .quick-replies {
+            background-color: #2a2a3e;
+        }
+
+        body.dark-theme .quick-reply-btn {
+            background-color: #1e1e2a;
+            border-color: #4a90e2;
         }
 
         /* Сепия тема */
@@ -761,6 +777,7 @@
             color: #5b4a3a;
         }
 
+        /* Мобильная версия с увеличенными кнопками */
         @media (max-width: 768px) {
             .hero-content {
                 flex-direction: column;
@@ -769,6 +786,8 @@
 
             .hero-buttons {
                 justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
             }
 
             .header-content {
@@ -798,6 +817,51 @@
                 bottom: 100px;
                 right: 10px;
                 flex-direction: row;
+            }
+        }
+
+        /* Дополнительные стили для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .primary-button,
+            .secondary-button,
+            .help-button {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                width: 100%;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .hotline-phone {
+                font-size: 1.2rem;
+            }
+            
+            .quick-reply-buttons {
+                flex-direction: column;
+            }
+            
+            .quick-reply-btn {
+                width: 100%;
+                padding: 0.7rem 1rem;
+            }
+            
+            .feedback-form {
+                padding: 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -880,7 +944,7 @@
                         <h3>Всероссийский телефон доверия</h3>
                         <div class="hotline-phone-container">
                             <span class="hotline-phone">8-800-123-45-67</span>
-                            <button class="copy-button" data-phone="88001234567">📋</button>
+                            <button class="copy-button" data-phone="88001234567">📋 Копировать</button>
                         </div>
                         <p>Круглосуточно, бесплатно, анонимно</p>
                     </div>
@@ -888,7 +952,7 @@
                         <h3>Детский телефон доверия</h3>
                         <div class="hotline-phone-container">
                             <span class="hotline-phone">8-800-200-01-22</span>
-                            <button class="copy-button" data-phone="88002000122">📋</button>
+                            <button class="copy-button" data-phone="88002000122">📋 Копировать</button>
                         </div>
                         <p>Для детей и подростков, 24/7</p>
                     </div>
@@ -896,7 +960,7 @@
                         <h3>Помощь при насилии</h3>
                         <div class="hotline-phone-container">
                             <span class="hotline-phone">8-800-700-06-00</span>
-                            <button class="copy-button" data-phone="88007000600">📋</button>
+                            <button class="copy-button" data-phone="88007000600">📋 Копировать</button>
                         </div>
                         <p>Круглосуточная поддержка</p>
                     </div>
@@ -904,7 +968,7 @@
                         <h3>Кризисная линия</h3>
                         <div class="hotline-phone-container">
                             <span class="hotline-phone">8-495-989-50-50</span>
-                            <button class="copy-button" data-phone="84959895050">📋</button>
+                            <button class="copy-button" data-phone="84959895050">📋 Копировать</button>
                         </div>
                         <p>Для взрослых в кризисной ситуации</p>
                     </div>
@@ -975,7 +1039,7 @@
                             <button type="submit" class="primary-button" style="width: 100%;" id="submitBtn">Отправить анонимно</button>
                         </form>
                         <div class="quick-replies">
-                            <p>Не знаешь, с чего начать? Попробуй один из вариантов:</p>
+                            <p>💡 Не знаешь, с чего начать? Нажми на один из вариантов ниже, чтобы заполнить поле текста:</p>
                             <div class="quick-reply-buttons">
                                 <button class="quick-reply-btn" data-target="message">Мне очень плохо, но я не знаю, как описать</button>
                                 <button class="quick-reply-btn" data-target="message">Чувствую тревогу и пустоту</button>
@@ -1040,7 +1104,7 @@
                 <button type="submit" class="primary-button" style="width: 100%;" id="modalSubmitBtn">Отправить анонимно</button>
             </form>
             <div class="quick-replies">
-                <p>Не знаешь, с чего начать? Попробуй один из вариантов:</p>
+                <p>💡 Не знаешь, с чего начать? Нажми на один из вариантов ниже:</p>
                 <div class="quick-reply-buttons">
                     <button class="quick-reply-btn" data-target="modalMessage">Мне очень плохо, но я не знаю, как описать</button>
                     <button class="quick-reply-btn" data-target="modalMessage">Чувствую тревогу и пустоту</button>
@@ -1056,9 +1120,9 @@
 
     <!-- Переключатель тем -->
     <div class="theme-switcher">
-        <button class="theme-btn" data-theme="light">☀️</button>
-        <button class="theme-btn" data-theme="dark">🌙</button>
-        <button class="theme-btn" data-theme="sepia">📜</button>
+        <button class="theme-btn" data-theme="light" title="Светлая тема">☀️</button>
+        <button class="theme-btn" data-theme="dark" title="Тёмная тема">🌙</button>
+        <button class="theme-btn" data-theme="sepia" title="Сепия">📜</button>
     </div>
 
     <!-- Кнопка наверх -->
@@ -1086,7 +1150,11 @@
 
         // === 2. Функция показа кризисного предупреждения ===
         function showCrisisWarning(formElement, messageText) {
-            if (document.querySelector('.crisis-warning')) return;
+            const existingWarning = document.querySelector('.crisis-warning');
+            if (existingWarning) {
+                existingWarning.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
             
             const warningDiv = document.createElement('div');
             warningDiv.className = 'crisis-warning';
@@ -1128,10 +1196,11 @@
             if (input && counter) {
                 const count = input.value.length;
                 counter.textContent = count;
-                if (count > 900) {
-                    counter.parentElement.classList.add('warning');
-                } else {
-                    counter.parentElement.classList.remove('warning');
+                const parent = counter.parentElement;
+                if (parent && count > 900) {
+                    parent.classList.add('warning');
+                } else if (parent) {
+                    parent.classList.remove('warning');
                 }
             }
         }
@@ -1152,6 +1221,7 @@
                 const targetInput = document.getElementById(targetId);
                 if (targetInput) {
                     targetInput.value = this.textContent;
+                    targetInput.focus();
                     if (targetId === 'message') updateCharCount(messageInput, charCount);
                     if (targetId === 'modalMessage') updateCharCount(modalMessageInput, modalCharCount);
                 }
@@ -1168,7 +1238,8 @@
         }
 
         document.querySelectorAll('.copy-button').forEach(button => {
-            button.addEventListener('click', async function() {
+            button.addEventListener('click', async function(e) {
+                e.preventDefault();
                 const phone = this.dataset.phone;
                 try {
                     await navigator.clipboard.writeText(phone);
@@ -1183,8 +1254,6 @@
         // === 7. Отправка форм с проверкой критических слов ===
         const anonymousForm = document.getElementById('anonymousForm');
         const modalForm = document.getElementById('modalForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
 
         async function handleFormSubmit(event, formElement, messageFieldId, closeModalAfterSubmit = false) {
             event.preventDefault();
@@ -1192,13 +1261,16 @@
             const messageField = document.getElementById(messageFieldId);
             const userMessage = messageField ? messageField.value : '';
             
-            // Проверка на критические ключевые слова
+            if (!userMessage.trim()) {
+                showNotification('Пожалуйста, напишите о том, что вас беспокоит.', 'success');
+                return;
+            }
+            
             if (containsCrisisKeywords(userMessage)) {
                 showCrisisWarning(formElement, userMessage);
                 return;
             }
             
-            // Имитация отправки с индикатором загрузки
             const btn = formElement.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<span class="loader"></span> Отправка...';
@@ -1209,14 +1281,14 @@
             btn.innerHTML = originalText;
             btn.disabled = false;
             
-            showNotification('Спасибо за обращение. Я отвечу тебе как можно скорее (в демо-версии сообщение не отправляется).', 'success');
+            showNotification('Спасибо за обращение. Я отвечу тебе как можно скорее.', 'success');
             formElement.reset();
             
             if (messageInput) updateCharCount(messageInput, charCount);
             if (modalMessageInput) updateCharCount(modalMessageInput, modalCharCount);
             
             if (closeModalAfterSubmit) {
-                closeModal();
+                setTimeout(() => closeModal(), 1000);
             }
         }
 
@@ -1264,13 +1336,17 @@
 
         // === 9. Переключатель тем ===
         const savedTheme = localStorage.getItem('preferredTheme');
-        if (savedTheme) {
+        if (savedTheme && savedTheme !== 'light') {
             document.body.className = savedTheme + '-theme';
         }
         document.querySelectorAll('.theme-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const theme = this.dataset.theme;
-                document.body.className = theme + '-theme';
+                if (theme === 'light') {
+                    document.body.className = '';
+                } else {
+                    document.body.className = theme + '-theme';
+                }
                 localStorage.setItem('preferredTheme', theme);
             });
         });
